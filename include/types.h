@@ -224,10 +224,10 @@ struct Waypoint
     s16 flags;
     Vec3s pos;
 };
-
+// A surface in the level geometry.
 struct Surface
 {
-    /*0x00*/ s16 type;
+    /*0x00*/ s16 type; // The type of surface this surface is.
     /*0x02*/ s16 force;
     /*0x04*/ s8 flags;
     /*0x05*/ s8 room;
@@ -281,7 +281,7 @@ struct MarioAnimation
     struct Animation *targetAnim;
     u8 padding[4];
 };
-
+// Mario's state (position, floor, etc)
 struct MarioState
 {
     /*0x00*/ u16 unk00;
@@ -296,7 +296,7 @@ struct MarioState
     /*0x1C*/ u32 actionArg;
     /*0x20*/ f32 intendedMag;
     /*0x24*/ s16 intendedYaw;
-    /*0x26*/ s16 invincTimer;
+    /*0x26*/ s16 invincTimer; // How long Mario is invincible for.
     /*0x28*/ u8 framesSinceA;
     /*0x29*/ u8 framesSinceB;
     /*0x2A*/ u8 wallKickTimer;
@@ -305,20 +305,20 @@ struct MarioState
     /*0x32*/ Vec3s angleVel;
     /*0x38*/ s16 slideYaw;
     /*0x3A*/ s16 twirlYaw;
-    /*0x3C*/ Vec3f pos;
-    /*0x48*/ Vec3f vel;
-    /*0x54*/ f32 forwardVel;
+    /*0x3C*/ Vec3f pos; // Mario's position. [0] = x, [1] = y, [2] = z.
+    /*0x48*/ Vec3f vel; // Mario's velocity. [0] = x, [1] = y, [2] = z
+    /*0x54*/ f32 forwardVel; // Mario's forward velocity.
     /*0x58*/ f32 slideVelX;
     /*0x5C*/ f32 slideVelZ;
     /*0x60*/ struct Surface *wall;
-    /*0x64*/ struct Surface *ceil;
-    /*0x68*/ struct Surface *floor;
-    /*0x6C*/ f32 ceilHeight;
-    /*0x70*/ f32 floorHeight;
+    /*0x64*/ struct Surface *ceil; // The current ceiling above Mario.
+    /*0x68*/ struct Surface *floor; // The current floor above Mario.
+    /*0x6C*/ f32 ceilHeight; // The height the current ceiling is at.
+    /*0x70*/ f32 floorHeight; // The height the current floor is at.
     /*0x74*/ s16 floorAngle;
     /*0x76*/ s16 waterLevel;
     /*0x78*/ struct Object *interactObj;
-    /*0x7C*/ struct Object *heldObj;
+    /*0x7C*/ struct Object *heldObj; // The object Mario is currently holding.
     /*0x80*/ struct Object *usedObj;
     /*0x84*/ struct Object *riddenObj;
     /*0x88*/ struct Object *marioObj;
@@ -329,17 +329,17 @@ struct MarioState
     /*0x9C*/ struct Controller *controller;
     /*0xA0*/ struct MarioAnimation *animation;
     /*0xA4*/ u32 collidedObjInteractTypes;
-    /*0xA8*/ s16 numCoins;
-    /*0xAA*/ s16 numStars;
+    /*0xA8*/ s16 numCoins; // The amount of coins Mario has.
+    /*0xAA*/ s16 numStars; // The amount of stars Mario has.
     /*0xAC*/ s8 numKeys; // Unused key mechanic
-    /*0xAD*/ s8 numLives;
-    /*0xAE*/ s16 health;
+    /*0xAD*/ s8 numLives; // The amount of lives Mario has.
+    /*0xAE*/ s16 health; // How much health (not sectors) Mario has.
     /*0xB0*/ s16 unkB0;
-    /*0xB2*/ u8 hurtCounter;
-    /*0xB3*/ u8 healCounter;
-    /*0xB4*/ u8 squishTimer;
+    /*0xB2*/ u8 hurtCounter; // For every 1, Mario will take 64 damage (not sectors) every frame. (Increase by 4 to damage 1 sector)
+    /*0xB3*/ u8 healCounter; // For every 1, Mario will gain 64 health (not sectors) every frame. (Increase by 4 to heal 1 sector)
+    /*0xB4*/ u8 squishTimer; // For how long Mario will be squished.
     /*0xB5*/ u8 fadeWarpOpacity;
-    /*0xB6*/ u16 capTimer;
+    /*0xB6*/ u16 capTimer; // How long until the wing/vanish/metal cap expires.
     /*0xB8*/ s16 prevNumStarsForDialog;
     /*0xBC*/ f32 peakHeight;
     /*0xC0*/ f32 quicksandDepth;

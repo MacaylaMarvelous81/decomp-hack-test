@@ -283,7 +283,7 @@ Yours truly--\n\
 Princess Toadstool"))
 
 DEFINE_DIALOG(DIALOG_021, 1, 5, 95, 200, _("\
-Welcome.\n\
+HEY! YOU!\n\
 No one's home!\n\
 Now " SCRAM "\n\
 and don't come back!\n\

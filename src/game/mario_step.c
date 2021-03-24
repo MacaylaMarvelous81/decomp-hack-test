@@ -38,8 +38,25 @@ f32 get_additive_y_vel_for_jumps(void) {
  * a potentially trampoline-related function, it is plausible that
  * this could be used for checking if Mario was on the trampoline.
  * It could, for example, make him bounce.
+ * Repurposed for custom surfaces.
  */
 void stub_mario_step_1(UNUSED struct MarioState *x) {
+    // If Mario is on the ground
+    /*
+    if (x->pos[1] == x->floorHeight)
+    {
+        switch (x->floor->type)
+        {
+            case SURFACE_HURT_TEST:
+                if (x->invincTimer <= 0)
+                {
+                    hurt_and_set_mario_action(x, ACT_BACKWARD_GROUND_KB, 0, 4);
+                    x->invincTimer = 100;
+                }
+                break;
+        }
+    }
+    */
 }
 
 /**

@@ -755,7 +755,7 @@ u32 interact_coin(struct MarioState *m, UNUSED u32 interactType, struct Object *
         queue_rumble_data(5, 80);
     }
 #endif
-
+    
     return FALSE;
 }
 
